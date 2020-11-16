@@ -1,0 +1,35 @@
+﻿
+@using Histocity_Website.Models;
+
+@model List<Question>
+
+
+@{
+    ViewBag.Title = "Question";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<h1>Questions</h1>
+
+<form method="POST">
+    <label for="questionText">Vraag:</label>
+    <input type="text" id="questionText" name="questionText" placeholder="Vul de vraag hierin" />
+    <input type="submit" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Vraag</th>
+            <th>Goede antwoord</th>
+        </tr>
+    </thead>
+    @foreach (var question in Model)
+    {
+        <tr>
+            <td>@question.QuestionText</td>
+            <td>@question.GoodAnswer</td>
+        </tr>
+    }
+</table>
+
